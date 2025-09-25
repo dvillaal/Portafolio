@@ -9,6 +9,9 @@ import MailIcon from '../components/icons/Mail.astro';
 import CodeIcon from '../components/icons/Code.astro';
 import SectionContainer from '../components/SectionContainer.astro';
 import Projects from '../components/Projects.astro';
+import TitleSection from '../components/TitleSection.astro';
+import ProfileCheck from '../components/icons/ProfileCheck.astro';
+import AboutMe from '../components/AboutMe.astro';
 ---
 
 <Layout title="Porfolio de David Villa - Desarrollador y Programador Web">
@@ -51,19 +54,29 @@ import Projects from '../components/Projects.astro';
 					<GitHubIcon class="w-6 h-6"/>
 						GitHub
 				</SocialPill>
-				<SocialPill href="davidvillaalzate@gmail.com">
+				<SocialPill href="mailto:davidvillaalzate@gmail.com">
 					<MailIcon class="w-6 h-6"/>
 						davidvillaalzate@gmail.com
 				</SocialPill>
 			</nav>
 		</SectionContainer>
-		<SectionContainer id="proyectos">
-			<h2 class="text-2xl font-semibold mb-6 flex gap-x-3 items-center">
-				<CodeIcon class="size-7"/>
-				Proyectos
-			</h2>
+
+		<div class="space-y-24">
+			<SectionContainer id="proyectos">
+				<h2 class="text-2xl font-semibold mb-6 flex gap-x-3 items-center">
+					<CodeIcon class="size-7"/>
+					Proyectos
+				</h2>
 				<Projects />
-		</SectionContainer>
-		</section>
+			</SectionContainer>
+			
+			<SectionContainer id="sobre-mi">
+				<TitleSection>
+					<ProfileCheck class="size-8" />
+					Sobre mí
+				</TitleSection>
+				<AboutMe />
+			</SectionContainer>
+		</div>
 	</main>
 </Layout>
