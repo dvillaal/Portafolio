@@ -1,0 +1,105 @@
+---
+import GitHubIcon from './icons/GitHub.astro';
+import SocialPill from './SocialPill.astro';
+
+const PROJECTS = [
+  {
+    title: 'Sistema de Inventario',
+    description: 'Aplicación para la gestión eficiente de inventarios, permitiendo el seguimiento y control de productos en tiempo real.',
+    skills: [
+      { name: 'React', colorClass: 'bg-blue-500' },
+      { name: 'Node.js', colorClass: 'bg-green-700' },
+      { name: 'Express', colorClass: 'bg-gray-500' },
+      { name: 'MongoDB', colorClass: 'bg-green-600' },
+      { name: 'JWT', colorClass: 'bg-yellow-600' }
+    ],
+    repo: { url: 'https://github.com/dvillaal/sistema-de-inventario' }
+  },
+  {
+    title: 'Anecdotes (Redux)',
+    description: 'Aplicación de anécdotas que utiliza Redux para gestionar el estado; permite votar y crear nuevas anécdotas con almacenamiento local mediante json‑server.',
+    skills: [
+      { name: 'React', colorClass: 'bg-blue-500' },
+      { name: 'Redux', colorClass: 'bg-purple-600' },
+      { name: 'Axios', colorClass: 'bg-sky-500' },
+      { name: 'JSON Server', colorClass: 'bg-gray-500' }
+    ],
+    repo: { url: 'https://github.com/dvillaal/Full-Stack-Open/tree/main/parte6/anecdotes-redux' }
+  },
+  {
+    title: 'Anecdotes (React Query)',
+    description: 'Aplicación de anécdotas que utiliza React Query para la gestión y cacheo de datos; permite votar y crear anécdotas, usando json‑server como almacenamiento.',
+    skills: [
+      { name: 'React', colorClass: 'bg-blue-500' },
+      { name: 'React Query', colorClass: 'bg-red-500' },
+      { name: 'Axios', colorClass: 'bg-sky-500' },
+      { name: 'JSON Server', colorClass: 'bg-gray-500' }
+    ],
+    repo: { url: 'https://github.com/dvillaal/Full-Stack-Open/tree/main/parte6/anecdotes-react-query' }
+  },
+  {
+    title: 'Blog List (Backend)',
+    description: 'API REST para gestionar blogs y usuarios, con autenticación JWT y persistencia en MongoDB.',
+    skills: [
+      { name: 'Node.js', colorClass: 'bg-green-700' },
+      { name: 'Express', colorClass: 'bg-gray-500' },
+      { name: 'MongoDB', colorClass: 'bg-green-600' },
+      { name: 'JWT', colorClass: 'bg-yellow-600' }
+    ],
+    repo: { url: 'https://github.com/dvillaal/Full-Stack-Open/tree/main/parte4' }
+  },
+  {
+    title: 'Python para Data Science',
+    description: 'Proyecto que utiliza Python y pandas en Google Colab para analizar el rendimiento de varias tiendas, comparando ingresos, productos vendidos, calificaciones y otros indicadores relevantes.',
+    skills: [
+      { name: 'Python', colorClass: 'bg-blue-500' },
+      { name: 'Google Colab', colorClass: 'bg-yellow-600' },
+      { name: 'Pandas', colorClass: 'bg-green-600' },
+      { name: 'Matplotlib', colorClass: 'bg-orange-500' }
+    ],
+    repo: { url: 'https://github.com/dvillaal/python-para-data-science' }
+  },
+  {
+    title: 'Blog List (Frontend)',
+    description: 'Frontend de una aplicación de blogs que permite listar, crear y dar “me gusta” a blogs, comunicándose con una API.',
+    skills: [
+      { name: 'React', colorClass: 'bg-blue-500' },
+      { name: 'Vite', colorClass: 'bg-violet-500' },
+      { name: 'Axios', colorClass: 'bg-sky-500' }
+    ],
+    repo: { url: 'https://github.com/dvillaal/Full-Stack-Open/tree/main/parte5' }
+  }
+];
+
+---
+
+<section class="gap-y-16">
+  <div class="grid grid-cols-1 gap-4 lg:grid-cols-2">
+    {PROJECTS.map((project) => (
+      <div
+        class="flex flex-col justify-between rounded-xl px-8 py-8 bg-gradient-to-br from-zinc-800 via-zinc-900 to-black border border-zinc-700"
+      >
+        <div>
+          <h5 class="text-lg font-semibold">{project.title}</h5>
+          <p class="mt-2 text-base text-zinc-400">{project.description}</p>
+        </div>
+        <div>
+          <div class="my-7 flex flex-wrap gap-2">
+            {project.skills.map((skill) => (
+              <span class="inline-flex items-center gap-1 rounded-md px-2 py-1 text-xs text-zinc-400 ring-1 ring-inset ring-gray-100/20">
+                <span class={`h-1.5 w-1.5 rounded-full ring-1 ring-white ${skill.colorClass}`} />
+                <span>{skill.name}</span>
+              </span>
+            ))}
+          </div>
+          <div>
+            <SocialPill href={project.repo.url}>
+              <GitHubIcon class="w-6 h-6"/>
+            </SocialPill>
+          </div>
+        </div>
+      </div>
+    ))}
+  </div>
+</section>
+

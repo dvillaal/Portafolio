@@ -1,11 +1,69 @@
 ---
-import Welcome from '../components/Welcome.astro';
 import Layout from '../layouts/Layout.astro';
+import Badge from "../components/Badge.astro"
+import SocialPill from '../components/SocialPill.astro';
 
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+import LinkedInIcon from '../components/icons/LinkedIn.astro';
+import GitHubIcon from '../components/icons/GitHub.astro';
+import MailIcon from '../components/icons/Mail.astro';
+import CodeIcon from '../components/icons/Code.astro';
+import SectionContainer from '../components/SectionContainer.astro';
+import Projects from '../components/Projects.astro';
 ---
 
-<Layout>
-	<Welcome />
+<Layout title="Porfolio de David Villa - Desarrollador y Programador Web">
+	<main>
+		<SectionContainer class="py-44 pb-24">
+			<div class="flex gap-4 mb-4">
+				<img 
+					class="rounded-full w-32 h-32 mb-4" 
+					src="villa-photo.jpg"
+					alt="villa photo"
+				/>
+				<a 
+					href="https://www.linkedin.com/in/david-villa-alzate/" 
+					target="_blank" 
+					rel="noopener" 
+					class="flex items-center transition md:justify-center md:hover:scale-105"
+				>
+					<Badge>Disponble para trabajar</Badge>
+				</a>
+			</div>
+			<h1 
+				class="text-4xl font-bold tracking-tight text-gray-800 sm:text-5xl dark:text-white"
+			>
+				Hey, soy David Villa 
+				
+			</h1>
+			<p
+				class="mt-6 text-xl text-gray-800 dark:[&>strong]:text-yellow-200 [&>strong]:text-yellow-500 [&>strong]:font-semibold dark:text-gray-300"
+			>
+				<span>Estudiante de Ingeniería de Sistemas con enfoque en </span>
+  			<span class="text-gradient hover:text-yellow-400 transition-colors">Desarrollo Web FullStack.</span>
+  			<span> Poseo conocimientos en frontend, backend y automatización, y busco siempre mejorar mis capacidades a través de proyectos prácticos.</span>
+			</p>			
+			<nav class="flex gap-x-4 mt-8">
+				<SocialPill href="https://www.linkedin.com/in/david-villa-alzate">
+					<LinkedInIcon class="w-6 h-6"/>
+						LinkedIn
+				</SocialPill>
+				<SocialPill href="https://github.com/dvillaal">
+					<GitHubIcon class="w-6 h-6"/>
+						GitHub
+				</SocialPill>
+				<SocialPill href="davidvillaalzate@gmail.com">
+					<MailIcon class="w-6 h-6"/>
+						davidvillaalzate@gmail.com
+				</SocialPill>
+			</nav>
+		</SectionContainer>
+		<SectionContainer id="proyectos">
+			<h2 class="text-2xl font-semibold mb-6 flex gap-x-3 items-center">
+				<CodeIcon class="size-7"/>
+				Proyectos
+			</h2>
+				<Projects />
+		</SectionContainer>
+		</section>
+	</main>
 </Layout>
